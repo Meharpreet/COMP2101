@@ -95,9 +95,9 @@ echo "========================= IP Info =========================="
   intfindex=0 # will be used to iterate over the interfaces array
 
   while [ $intfindex -lt $numinterfaces ]; do
-  # get the name from the interfaces array
+  # grabing name from the interfaces array
     intfname="${interfaces[$intfindex]}"
-  # extract the assigned ip address using ifconfig and store that in the ips hash
+  # extract the assigned ip address using ifconfig and storing in ips hash
     ips[$intfname]="`ifconfig $intfname|grep 'inet '|sed -e 's/.*addr://' -e 's/ .*//'`"
 
   # FOllowing displays the interface and its ip addresses
@@ -106,7 +106,7 @@ echo "========================= IP Info =========================="
     else
       echo "  Interface $intfname has no ip address"
     fi
-  # increment the index and move on to the next interfaces array value
+  # adding the index and move to the next interfaces array value
     intfindex+=1
   done
   echo ""
